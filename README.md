@@ -7,7 +7,7 @@ The following libraries are required:
 * VTK 7( VTK 7.1.1 https://www.vtk.org/files/release/7.1/VTK-7.1.1.tar.gz )
 * OpenCV ( OpenCV 3.4.9 )
 * Eigen ( Eigen 3.3.7 )
-* CeresSolver ( https://ceres-solver.googlesource.com/ceres-solver/ )
+* CeresSolver ( https://ceres-solver.googlesource.com/ceres-solver )
 
 ### Compiling
 First build VIZ in `./external/viz` following the instructions given there.
