@@ -20,6 +20,7 @@
 
 // Eigen includes
 #include <Eigen/Core>
+#include <Eigen/Core>
 
 // C/C++ includes
 #include <string>
@@ -27,6 +28,8 @@
 
 // Own includes
 #include "geometry.h"
+
+#include <map>
 
 namespace gvl {
 

@@ -1,0 +1,4 @@
+/root/ShapePriors_GCPR16-master/release/CMakeFiles/rebuild_cache.dir
+/root/ShapePriors_GCPR16-master/release/CMakeFiles/edit_cache.dir
+/root/ShapePriors_GCPR16-master/release/CMakeFiles/GVL.dir
+/root/ShapePriors_GCPR16-master/release/CMakeFiles/ShapePrior.dir

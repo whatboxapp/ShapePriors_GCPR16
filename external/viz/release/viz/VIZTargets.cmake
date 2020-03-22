@@ -41,50 +41,22 @@ unset(_targetsNotDefined)
 unset(_expectedTargets)
 
 
-# The installation prefix configured by this project.
-set(_IMPORT_PREFIX "/usr/local")
-
 # Create imported target viz::VIZ
 add_library(viz::VIZ SHARED IMPORTED)
 
 set_target_properties(viz::VIZ PROPERTIES
   COMPATIBLE_INTERFACE_STRING "VIZ_MAJOR_VERSION"
+  INTERFACE_INCLUDE_DIRECTORIES "/root/ShapePriors_GCPR16-master/external/viz/release;/root/ShapePriors_GCPR16-master/external/viz"
   INTERFACE_LINK_LIBRARIES "vtkChartsCore;vtkCommonColor;vtkCommonCore;vtksys;vtkCommonDataModel;vtkCommonMath;vtkCommonMisc;vtkCommonSystem;vtkCommonTransforms;vtkCommonExecutionModel;vtkFiltersGeneral;vtkCommonComputationalGeometry;vtkFiltersCore;vtkInfovisCore;vtkFiltersExtraction;vtkFiltersStatistics;vtkImagingFourier;vtkImagingCore;vtkalglib;vtkRenderingContext2D;vtkRenderingCore;vtkFiltersGeometry;vtkFiltersSources;vtkRenderingFreeType;vtkfreetype;vtkzlib;vtkDICOMParser;vtkDomainsChemistry;vtkIOLegacy;vtkIOCore;vtkIOXMLParser;vtkexpat;vtkDomainsChemistryOpenGL2;vtkRenderingOpenGL2;vtkIOImage;vtkmetaio;vtkjpeg;vtkpng;vtktiff;vtkglew;vtkFiltersAMR;vtkIOXML;vtkParallelCore;vtkFiltersFlowPaths;vtkFiltersGeneric;vtkFiltersHybrid;vtkImagingSources;vtkFiltersHyperTree;vtkFiltersImaging;vtkImagingGeneral;vtkFiltersModeling;vtkFiltersParallel;vtkFiltersParallelImaging;vtkFiltersPoints;vtkFiltersProgrammable;vtkFiltersSMP;vtkFiltersSelection;vtkFiltersTexture;vtkFiltersVerdict;verdict;vtkGeovisCore;vtkInfovisLayout;vtkImagingHybrid;vtkInteractionStyle;vtkInteractionWidgets;vtkImagingColor;vtkRenderingAnnotation;vtkRenderingVolume;vtkViewsCore;vtkproj4;vtkIOAMR;vtkhdf5_hl;vtkhdf5;vtkIOEnSight;vtkIOExodus;vtkexoIIc;vtkNetCDF;vtkNetCDF_cxx;vtkIOExport;vtkRenderingGL2PSOpenGL2;vtkgl2ps;vtkIOGeometry;vtkIOImport;vtkIOInfovis;vtklibxml2;vtkIOLSDyna;vtkIOMINC;vtkIOMovie;vtkoggtheora;vtkIONetCDF;vtkIOPLY;vtkIOParallel;vtkjsoncpp;vtkIOParallelXML;vtkIOSQL;vtksqlite;vtkIOTecplotTable;vtkIOVideo;vtkImagingMath;vtkImagingMorphological;vtkImagingStatistics;vtkImagingStencil;vtkInteractionImage;vtkRenderingContextOpenGL2;vtkRenderingImage;vtkRenderingLOD;vtkRenderingLabel;vtkRenderingVolumeOpenGL2;vtkViewsContext2D;vtkViewsInfovis;opencv_calib3d;opencv_core;opencv_dnn;opencv_features2d;opencv_flann;opencv_highgui;opencv_imgcodecs;opencv_imgproc;opencv_ml;opencv_objdetect;opencv_photo;opencv_shape;opencv_stitching;opencv_superres;opencv_video;opencv_videoio;opencv_videostab;opencv_viz;opencv_aruco;opencv_bgsegm;opencv_bioinspired;opencv_ccalib;opencv_cvv;opencv_datasets;opencv_dnn_objdetect;opencv_dpm;opencv_face;opencv_freetype;opencv_fuzzy;opencv_hdf;opencv_hfs;opencv_img_hash;opencv_line_descriptor;opencv_optflow;opencv_phase_unwrapping;opencv_plot;opencv_reg;opencv_rgbd;opencv_saliency;opencv_sfm;opencv_stereo;opencv_structured_light;opencv_surface_matching;opencv_text;opencv_tracking;opencv_xfeatures2d;opencv_ximgproc;opencv_xobjdetect;opencv_xphoto"
   INTERFACE_VIZ_MAJOR_VERSION "3"
 )
 
-if(CMAKE_VERSION VERSION_LESS 2.8.12)
-  message(FATAL_ERROR "This file relies on consumers using CMake 2.8.12 or greater.")
-endif()
-
-# Load information for each installed configuration.
-get_filename_component(_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
-file(GLOB CONFIG_FILES "${_DIR}/VIZTargets-*.cmake")
-foreach(f ${CONFIG_FILES})
-  include(${f})
-endforeach()
-
-# Cleanup temporary variables.
-set(_IMPORT_PREFIX)
-
-# Loop over all imported files and verify that they actually exist
-foreach(target ${_IMPORT_CHECK_TARGETS} )
-  foreach(file ${_IMPORT_CHECK_FILES_FOR_${target}} )
-    if(NOT EXISTS "${file}" )
-      message(FATAL_ERROR "The imported target \"${target}\" references the file
-   \"${file}\"
-but this file does not exist.  Possible reasons include:
-* The file was deleted, renamed, or moved to another location.
-* An install or uninstall procedure did not complete successfully.
-* The installation package was faulty and contained
-   \"${CMAKE_CURRENT_LIST_FILE}\"
-but not all the files it references.
-")
-    endif()
-  endforeach()
-  unset(_IMPORT_CHECK_FILES_FOR_${target})
-endforeach()
-unset(_IMPORT_CHECK_TARGETS)
+# Import target "viz::VIZ" for configuration "Release"
+set_property(TARGET viz::VIZ APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(viz::VIZ PROPERTIES
+  IMPORTED_LOCATION_RELEASE "/root/ShapePriors_GCPR16-master/external/viz/release/libVIZ.so.0.0.1"
+  IMPORTED_SONAME_RELEASE "libVIZ.so.0.0.1"
+  )
 
 # This file does not depend on other imported targets which have
 # been exported from the same project but in a separate export set.

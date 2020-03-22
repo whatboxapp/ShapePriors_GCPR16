@@ -1,0 +1,7 @@
+/root/ShapePriors_GCPR16-master/external/viz/lib/libVIZ.so.0.0.1
+/root/ShapePriors_GCPR16-master/external/viz/lib/libVIZ.so
+/root/ShapePriors_GCPR16-master/external/viz/include/viz/geometry.h
+/root/ShapePriors_GCPR16-master/external/viz/include/viz/viz.h
+/root/ShapePriors_GCPR16-master/external/viz/cmake/VIZTargets.cmake
+/root/ShapePriors_GCPR16-master/external/viz/cmake/VIZTargets-release.cmake
+/root/ShapePriors_GCPR16-master/external/viz/cmake/VIZConfigVersion.cmake
